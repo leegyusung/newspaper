@@ -16,6 +16,6 @@ module.exports = {
                 date: $(this).find('dl > dd').eq(1).text() //기사 날짜
             }
         })
-        return console.log(ulList);
+        return ulList;
     }
 }

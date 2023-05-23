@@ -7,11 +7,12 @@ const app = express();
 
 app.set('port', process.env.PORT || 3000);
 
-// app.get('/', (req, res) => {
-//     res.send('Hello, Express');
-// });
-// main.renderDomString();
-console.log(api.getCode());
+//promise {pending} 을 반환했기때문에
+(async () => {
+    let data = await main.renderDomString();
+    await api.sendKakaoMessage(data);
+})();
+
 
 app.listen(app.get('port'), () => {
     console.log(app.get('port'), '번 포트에서 대기 중')
